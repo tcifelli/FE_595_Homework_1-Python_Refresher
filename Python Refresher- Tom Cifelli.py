@@ -1,14 +1,18 @@
-import matplotlib.pyplot as plt
-import matplotlib.ticker as ticks
-import numpy as np
+import matplotlib.pyplot as plt #the general plotting framework
+import matplotlib.ticker as ticks #used to put the pi symbol on the x-axis
+import numpy as np #contains sine and cosine functions
 
-
-def printWaves(start = 0, end = np.pi * 2, pointsPerFullRotation = 100):
-    resolution = ((end - start) / pointsPerFullRotation) * ((end - start) / (np.pi * 2))
+#generate a plot of sine and cosine waves
+def printWaves(start = 0, #start of the wave
+               end = np.pi * 2, #end of the wave
+               pointsPerFullWavelength = 100): #points to plot per full wavelength (higher = smoother)
+    #generate datapoints to plot
+    resolution = (np.pi * 2) / pointsPerFullWavelength
     inputs = np.arange(start, end, resolution)
     sinOutputs = np.sin(inputs)
     cosOutputs = np.cos(inputs)
 
+    #generate plot
     plt.xlabel("Input")
     plt.ylabel("Amplitude")
     plt.title("Trig Waves")
@@ -22,10 +26,10 @@ def printWaves(start = 0, end = np.pi * 2, pointsPerFullRotation = 100):
     ax.legend(loc = "upper right")
     plt.show()
 
-
+#functions to run when file is called
 def main():
     printWaves()
 
-
+#runs the main function when file is called
 if __name__ == "__main__":
     main()
