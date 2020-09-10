@@ -11,8 +11,10 @@ def printWaves(start = 0, #start of the wave
     inputs = np.arange(start, end, resolution)
     sinOutputs = np.sin(inputs)
     cosOutputs = np.cos(inputs)
+    tanOutputs = np.tan(inputs)
 
     #generate plot
+    plt.ylim(-1,1)
     plt.xlabel("Input")
     plt.ylabel("Amplitude")
     plt.title("Trig Waves")
@@ -21,6 +23,7 @@ def printWaves(start = 0, #start of the wave
     ax = plt.gca()
     ax.plot(inputs / np.pi, sinOutputs, label = "sine")
     ax.plot(inputs / np.pi, cosOutputs, label = "cosine")
+    ax.plot(inputs / np.pi, tanOutputs, label = "tangent")
     ax.xaxis.set_major_formatter(ticks.FormatStrFormatter('%g $\pi$'))
     ax.xaxis.set_major_locator(ticks.MultipleLocator(base=0.5))
     ax.legend(loc = "upper right")
